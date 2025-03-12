@@ -15,7 +15,7 @@ from work_db import add_task_db, update_task_db, del_task_db, list_db
 
 CHOOSING, TYPING_CHOICE_ADD, TYPING_CHOICE_UPDATE_ID, TYPING_CHOICE_UPDATE_DESCRIPTION, TYPING_CHOICE_DEL = range(5)
 
-
+"""start"""
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     button_1 = InlineKeyboardButton(
         text='✅ Добавить задачу',
@@ -115,13 +115,13 @@ async def list_task_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await list_db(update, context)
 
 
-
+"""other_text"""
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработчик текстовых сообщений вне команд"""
     await update.message.reply_text("К сожалению, я не знаю, что ответить. Если у тебя есть какой-либо запрос, попробуй воспользоваться командами через /start")
 
 
-
+"""done"""
 async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Завершение работы с задачами"""
     await update.message.reply_text("Готово")
