@@ -16,7 +16,7 @@ from main import (
     handle_text,
     done,
 )
-
+"""Тесты уточнены у ИИ"""
 class TestBot(unittest.TestCase):
 
     def setUp(self):
