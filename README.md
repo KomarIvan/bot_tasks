@@ -23,7 +23,7 @@ Python 3.9+
 
 python-telegram-bot
 
-Собственные модули config, env
+Собственные модули .env
 
 ### Конфигурация
 
@@ -32,33 +32,6 @@ python-telegram-bot
 #### Пример:
 BOT_TOKEN= 1705052328922:AAE-vgHAfOeDDtgA5sjGwJUoXRdjTGxSK_7o
 ADMIN_IDS= 1705052328922
-
-Создайте файл config.py с возможность получать BOT_TOKEN
-
-#### Пример:
-from dataclasses import dataclass
-from environs import Env
-
-
-@dataclass
-class TgBot:
-    token: str  # Токен для доступа к телеграм-боту
-    admin_ids: list[int]  # Список id администраторов бота
-
-
-@dataclass
-class Config:
-    tg_bot: TgBot
-
-def load_config(path: str | None = None) -> Config:
-    env = Env()
-    env.read_env(path)
-    return Config(
-        tg_bot=TgBot(
-            token=env('BOT_TOKEN'),
-            admin_ids=list(map(int, env.list('ADMIN_IDS')))
-        )
-    )
 
 ## Использование
 
