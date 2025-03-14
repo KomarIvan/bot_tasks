@@ -15,7 +15,7 @@ from work_db import add_task_db, update_task_db, del_task_db, list_db
 
 CHOOSING, TYPING_CHOICE_ADD, TYPING_CHOICE_UPDATE_ID, TYPING_CHOICE_UPDATE_DESCRIPTION, TYPING_CHOICE_DEL = range(5)
 
-"""start"""
+#start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     button_1 = InlineKeyboardButton(
         text='✅ Добавить задачу',
@@ -45,7 +45,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=keyboard
     )
 
-"""add"""
+#add
 async def add_task_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработка нажатия кнопки '✅ Добавить задачу'. Далее пользователь отправляет описание задачи"""
     query = update.callback_query
@@ -61,7 +61,7 @@ async def add_task_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-"""update"""
+#update
 async def update_task_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработка нажатия кнопки '🔄 Обновить задачу'. Далее пользователь отправляет id задачи"""
     query = update.callback_query
@@ -83,7 +83,7 @@ async def get_task_id_for_update(update: Update, context: ContextTypes.DEFAULT_T
 
 
 
-"""del"""
+#del
 async def del_task_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработка нажатия кнопки '❌ Удалить задачу'. Далее пользователь отправляет id задачи, которую хочет удалить"""
     query = update.callback_query
@@ -98,7 +98,7 @@ async def del_task_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return TYPING_CHOICE_DEL
 
 
-"""list"""
+#list
 async def list_task_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработка нажатия кнопки '📒 Показать все задачи'. Отправляется список задач по пользователю"""
     query = update.callback_query
@@ -115,13 +115,13 @@ async def list_task_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await list_db(update, context)
 
 
-"""other_text"""
+#other_text
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработчик текстовых сообщений вне команд"""
     await update.message.reply_text("К сожалению, я не знаю, что ответить. Если у тебя есть какой-либо запрос, попробуй воспользоваться командами через /start")
 
 
-"""done"""
+#done
 async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Завершение работы с задачами"""
     await update.message.reply_text("Готово")
